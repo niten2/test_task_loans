@@ -2,7 +2,7 @@ nav
   .navbar-fixed.nav-wrapper
     ul
       li
-        = link_to "Вопросы", questions_path
+        / = link_to "Вопросы", questions_path
     /   li
     /     = link_to "Списки", lists_path
     /   li
@@ -15,7 +15,7 @@ nav
       / li
         / = link_to "Описание", description_path
       li
-        = current_user.email
+        = current_user.login
       li
         -if user_signed_in?
           = link_to "Выйти", destroy_user_session_path, method: :delete
