@@ -1,0 +1,24 @@
+= simple_form_for @client do |f|
+
+  = render 'common/errors', resource: @client
+  .input-field.col.s4
+    = f.input :name, label: "Имя", class: "materialize-textarea"
+    br
+  .input-field.col.s4
+    = f.input :surname, label: "Фамилия", class: "materialize-textarea"
+    br
+  .input-field.col.s4
+    = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
+    br
+  .col.s4.input-field
+    = f.input :territory, label: "Территория", class: "materialize-textarea"
+  .clearfix
+  .col.s4.input-field
+    = f.input :phone, label: "Телефон", class: "materialize-textarea"
+    br
+  .col.s4.input-field
+    = f.input :email, label: "E-mail", class: "materialize-textarea"
+  .col.s4.input-field
+    = f.input :passport, label: "Паспорт", class: "materialize-textarea"
+  .clearfix
+  .center = f.submit "Создать клиента", class: "btn"
