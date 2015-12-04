@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :authentication_keys => [:login]
 
+  scope :admin, -> { where(admin: true) }
+  # scope :red, -> { where(color: 'red') }
+  scope :manager, -> { where(admin: false) }
   validates :name, :surname, :patronymic, :phone, :territory, presence: true
 
   # has_many :questions

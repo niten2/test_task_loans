@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   resources :clients
-  resources :users
   # devise_for :users, controllers: { sessions: 'sessions', registrations: "registrations" }
-  devise_for :users
+  devise_for :users, :path_prefix => 'my', controllers: {registrations: 'registrations'}
+  # devise_for :users, :path_prefix => 'my', :skip => [:registrations]
+
+  resources :users
+  # resources :users
 
   devise_scope :user do
     root 'devise/sessions#new'

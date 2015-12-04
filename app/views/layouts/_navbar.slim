@@ -3,7 +3,8 @@ nav
     ul
       li
         = link_to "Главная", welcome_path
-    /   li
+      li
+        = link_to "Панель Администратора", users_path
     /     = link_to "Списки", lists_path
     /   li
     /     = link_to "Расписание", calendar_path
@@ -15,7 +16,7 @@ nav
       / li
         / = link_to "Описание", description_path
       li
-        / = current_user.email
+        = current_user.login
       li
         -if user_signed_in?
           = link_to "Выйти", destroy_user_session_path, method: :delete

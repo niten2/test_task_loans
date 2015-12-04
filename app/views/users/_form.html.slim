@@ -24,4 +24,4 @@
     = f.input :phone, label: "Телефон", class: "materialize-textarea"
     br
   .clearfix
-  .center = f.submit "Создать клиента", class: "btn"
+  .center = f.submit (@user.new_record? ? 'Создать менеджера' : 'Обновить менеджера'), class: "btn btn-primary"
