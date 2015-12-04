@@ -6,10 +6,8 @@ h5.center Список Менеджеров
   -if user.access_locked?
     .red-text
       = render "users_manager", user: user
-      .col.s2 = link_to('Разблокировать', unlock_user_path(user), method: :post, class: 'button-xs')
+      .col.s2 = link_to 'Разблокировать', unlock_user_path(user), method: :post
       .clearfix
-      / .col.s2 = link_to "Разблокировать", "#"
-
   - else
     = render "users_manager", user: user
     .clearfix

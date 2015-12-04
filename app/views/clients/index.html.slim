@@ -1,19 +1,15 @@
-h1 Список клиентов
+h4.center Список клиентов
 
-table
-  thead
-    tr
-      th
-      th
-      th
+.col.s2 Имя
+.clearfix
+br
 
-  tbody
-    - @clients.each do |client|
-      tr
-        td = client.name
-        td = link_to 'Show', client
-        td = link_to 'Edit', edit_client_path(client)
-        td = link_to 'Destroy', client, data: {:confirm => 'Are you sure?'}, :method => :delete
+- @clients.each do |client|
+    .col.s2 = client.name
+    .col.s2 = link_to 'Просмотр', client
+    .col.s2 = link_to 'Редактировать', edit_client_path(client)
+    .col.s2 = link_to 'Удалить', client, data: {:confirm => 'Are you sure?'}, :method => :delete
+    .clearfix
 
 br
 

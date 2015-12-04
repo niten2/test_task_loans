@@ -1,8 +1,8 @@
 .center = render @client
 br
 .center
-  = link_to 'Редактировать данные', edit_client_path(@client)
+  = button_to 'Редактировать', edit_user_path(@client), method: :get, class: "btn"
   br
-  = link_to 'Выдать займ', "#"
+  = button_to 'Выдать займ', issue_loan_client_path, method: :get, class: "btn"
   br
   = link_to 'Назад', clients_path

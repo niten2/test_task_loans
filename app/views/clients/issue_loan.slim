@@ -1,0 +1,14 @@
+h4.center
+  | ФИО:
+  =< @client.name
+  =< @client.surname
+  =< @client.patronymic
+
+h4 Уже выданные займы
+h4 Дата погашения каждого
+
+hr
+
+
+/ - simple_form_for @loan, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+/   =
