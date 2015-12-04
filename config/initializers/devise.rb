@@ -11,4 +11,14 @@ Devise.setup do |config|
   config.password_length = 2..72
   config.reset_password_within = 6.hours
   config.sign_out_via = :delete
+
+  config.lock_strategy = :failed_attempts
+  config.maximum_attempts = 4
+
+  config.unlock_keys = [ :time ]
+  config.unlock_strategy = :time
+  config.unlock_in = 2.hours
+
+
+
 end

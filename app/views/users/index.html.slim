@@ -3,15 +3,16 @@ h5.center Список Менеджеров
 .col.s2 Имя
 .clearfix
 - @users.manager.each do |user|
-  .col.s2 = user.login
-  - if user.name.present?
-    .col.s2 = user.name
+  -if user.access_locked?
+    .red-text
+      = render "users_manager", user: user
+      .col.s2 = link_to('Разблокировать', unlock_user_path(user), method: :post, class: 'button-xs')
+      .clearfix
+      / .col.s2 = link_to "Разблокировать", "#"
+
   - else
-    .col.s2 Не указано
-  .col.s2 = link_to 'Просмотр', user
-  .col.s3 = link_to 'Редактирование', edit_user_path(user)
-  .col.s3 = link_to 'Удаление', user, data: {:confirm => 'Are you sure?'}, :method => :delete
-.clearfix
+    = render "users_manager", user: user
+    .clearfix
 br
 .center = button_to 'Новый Менеджер', new_user_path, class: "btn", method: :get
 br

@@ -1,6 +1,12 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
+  def unlock
+    @user = User.find(params[:id])
+    @user.unlock_access!
+    redirect_to users_path
+  end
+
   def index
     @users = User.all
     @clients = Client.all
