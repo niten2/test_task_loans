@@ -13,7 +13,8 @@ class ClientsController < ApplicationController
   end
 
   def new
-    @client = Client.new
+    @user = current_user
+    @client = current_user.clients.new
   end
 
   def edit
@@ -47,10 +48,7 @@ class ClientsController < ApplicationController
 
   def destroy
     @client.destroy
-    respond_to do |format|
-      format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to user_clients_url(current_user), notice: 'Client was successfully destroyed.'
   end
 
   private

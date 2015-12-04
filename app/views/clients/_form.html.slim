@@ -1,4 +1,5 @@
-= simple_form_for @client, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+/ = simple_form_for [@user, @client], :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+= simple_form_for [@user, @client], :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
 
   = render 'common/errors', resource: @client
   .input-field.col.s4

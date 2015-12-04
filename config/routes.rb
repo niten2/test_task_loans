@@ -5,8 +5,9 @@ Rails.application.routes.draw do
   devise_for :users, :path_prefix => 'my', controllers: {registrations: 'registrations'}
   # devise_for :users, :path_prefix => 'my', :skip => [:registrations]
 
-  resources :users do
+  resources :users, shallow: true do
     post :unlock, :on => :member
+    get :admin_panel
     resources :clients, shallow: true do
       get :issue_loan, on: :member
       resources :loans, shallow: true

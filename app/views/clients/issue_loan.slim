@@ -23,7 +23,8 @@ h5.center Выдать новый займ:
   .col.s4 = f.date_select :date_issue, label: "Дата выдачи займа"
   .col.s4
     | Коэффициент выдачи займа
-    = @client.manager.territory
+    - if @client.user.present?
+      = @client.user.territory
 
   .clearfix
   .center = f.submit "Выдать займ", class: "btn"

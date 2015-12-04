@@ -5,4 +5,4 @@ br
   br
   = button_to 'Выдать займ', issue_loan_client_path, method: :get, class: "btn"
   br
-  = link_to 'Назад', clients_path
+  = link_to 'Назад', user_clients_path(current_user)
