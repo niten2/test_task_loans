@@ -1,8 +1,8 @@
-= simple_form_for @client do |f|
+= simple_form_for @client, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
 
   = render 'common/errors', resource: @client
   .input-field.col.s4
-    = f.input :name, label: "Имя", class: "materialize-textarea"
+    = f.input :name, label: "Имя", class: "ntSaveForms materialize-textarea"
     br
   .input-field.col.s4
     = f.input :surname, label: "Фамилия", class: "materialize-textarea"
