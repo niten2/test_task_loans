@@ -19,6 +19,7 @@ class LoansController < ApplicationController
   def create
     @loan = Loan.new(loan_params)
     @loan.client = @client
+    @loan.count_total_sum
     if @loan.save
       redirect_to issue_loan_client_path(@client), notice: 'loan was successfully created.'
     else
@@ -49,7 +50,7 @@ class LoansController < ApplicationController
     end
 
     def loan_params
-      params.require(:loan).permit(:sum )
+      params.require(:loan).permit(:sum, :date_issue, :end_loan )
     end
 
 end
