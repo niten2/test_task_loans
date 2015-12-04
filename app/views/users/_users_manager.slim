@@ -3,6 +3,6 @@
   .col.s2 = user.name
 - else
   .col.s2 Не указано
-.col.s1 = link_to 'Просмотр', user
+.col.s2 = link_to 'Просмотр', user
 .col.s2 = link_to 'Редактирование', edit_user_path(user)
 .col.s2 = link_to 'Удаление', user, data: {:confirm => 'Are you sure?'}, :method => :delete

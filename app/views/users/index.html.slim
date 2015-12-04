@@ -27,12 +27,11 @@ br
 
 h5.center Список Клиентов
 - if @clients.present?
-  .offset-s4.col.s2 Логин
-  .col.s2 Имя
+  .center Имя
   .clearfix
   - @clients.each do |client|
-    .offset-s4.col.s3 = client.name
-  .clearfix
+    .center = client.name
+    .clearfix
   br
 - else
   .center Клиентов пока нет
