@@ -1,24 +1,24 @@
 h2.center Войти
 .col.s4
-  / .center
-  /   br
-  /   br
-  /   | Описание проекта:
-  /   =< link_to "здесь", description_path
-  /   br
-  /   | Код проекта:
-  /   =< link_to "здесь", "https://github.com/niten2/system-for-antikafe"
-  /   br
-  /   br
-  /   | Логин от демо версии:
-  /   = " "
-  /   br
-  /   strong test@test.com
-  /   br
-  /   | Пароль:
-  /   = " "
-  /   br
-  /   strong 12345678
+  .center
+    br
+    br
+    | Описание проекта:
+    =< link_to "здесь", description_path
+    br
+    | Код проекта:
+    =< link_to "здесь", "https://github.com/niten2/test_task_loans"
+    br
+    br
+    | Логин от демо версии:
+    = " "
+    br
+    strong admin
+    br
+    | Пароль:
+    = " "
+    br
+    strong 123
 .offset-s4.col.s4
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
@@ -36,4 +36,4 @@ h2.center Войти
     .actions
       br
       .center = f.submit "Войти", class: "btn"
-  = render "devise/shared/links"
+  / = render "devise/shared/links"

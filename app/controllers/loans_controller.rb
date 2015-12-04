@@ -3,7 +3,6 @@ class LoansController < ApplicationController
   before_action :set_client, only: [:create]
 
   def index
-    # @loans = loan.all
   end
 
   def show
@@ -52,6 +51,5 @@ class LoansController < ApplicationController
     def loan_params
       params.require(:loan).permit(:sum, :date_issue, :end_loan )
     end
-
 end
 

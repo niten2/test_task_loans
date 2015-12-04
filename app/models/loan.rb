@@ -2,7 +2,6 @@ class Loan < ActiveRecord::Base
 
   belongs_to :client
 
-
   def count_total_sum
     start_sum = self.sum
     territory = self.client.user.territory.to_i

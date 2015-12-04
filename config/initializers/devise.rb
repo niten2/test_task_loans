@@ -15,10 +15,8 @@ Devise.setup do |config|
   config.lock_strategy = :failed_attempts
   config.maximum_attempts = 4
 
-  config.unlock_keys = [ :time ]
-  config.unlock_strategy = :time
-  config.unlock_in = 2.hours
-
-
+  # config.unlock_keys = [ :time ]
+  # config.unlock_strategy = :time
+  # config.unlock_in = 2.hours
 
 end

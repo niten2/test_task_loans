@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-
   def unlock
     @user = User.find(params[:id])
     @user.unlock_access!
@@ -37,7 +36,7 @@ class UsersController < ApplicationController
       user_params.delete(:password)
       user_params.delete(:password_confirmation)
     end
-    # https://github.com/plataformatec/devise/wiki/How-To%3a-Allow-users-to-edit-their-account-without-providing-a-password
+
     successfully_updated = if needs_password?(@user, user_params)
                              @user.update(user_params)
                            else
@@ -68,5 +67,4 @@ class UsersController < ApplicationController
     def needs_password?(user, params)
       params[:password].present?
     end
-
 end
