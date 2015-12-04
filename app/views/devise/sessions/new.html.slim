@@ -1,5 +1,5 @@
 h2.center Войти
-.col.s4
+.col.s5
   .center
     br
     br
@@ -13,13 +13,12 @@ h2.center Войти
     | Логин от демо версии:
     = " "
     br
-    strong admin
+    | Администратор:
+    strong Логин - admin, Пароль - 123
     br
-    | Пароль:
-    = " "
-    br
-    strong 123
-.offset-s4.col.s4
+    | Менеджер:
+    strong Логин - test, Пароль - 123
+.offset-s3.col.s4
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :login
