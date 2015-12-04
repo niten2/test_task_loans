@@ -1,5 +1,6 @@
 class LoansController < ApplicationController
   before_action :set_loan, only: [:show, :edit, :update, :destroy, :issue_loan]
+  before_action :set_client, only: [:create]
 
   def index
     # @loans = loan.all
@@ -17,8 +18,9 @@ class LoansController < ApplicationController
 
   def create
     @loan = Loan.new(loan_params)
+    @loan.client = @client
     if @loan.save
-      redirect_to @loan, notice: 'loan was successfully created.'
+      redirect_to issue_loan_client_path(@client), notice: 'loan was successfully created.'
     else
       render :new
     end
@@ -38,6 +40,10 @@ class LoansController < ApplicationController
   end
 
   private
+    def set_client
+      @client = Client.find(params[:client_id])
+    end
+
     def set_loan
       @loan = Loan.find(params[:id])
     end

@@ -4,12 +4,26 @@ h4.center
   =< @client.surname
   =< @client.patronymic
 
-h4 Уже выданные займы
-h4 Дата погашения каждого
-
+br
+h5.center Уже выданные займы:
+.offset-s4.col.s2 Сумма займа
+.col.s3 Дата погашения
+.clearfix
+- @client.loans.each do |loan|
+  .offset-s4.col.s2 = loan.sum
+  .col.s3 = loan.end_loan
+  br
+.clearfix
 hr
 
 
-= simple_form_for @loan, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
-  = f.input :sum, label: "Сумма займа"
+h5.center Выдать новый займ:
+= simple_form_for [@client, @loan], :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+  .col.s4 = f.input :sum, label: "Сумма займа"
+  .col.s4 = f.date_select :date_issue, label: "Дата выдачи займа"
+  .col.s4
+    | Коэффициент выдачи займа
+    = @client.manager.territory
+
+  .clearfix
   .center = f.submit "Выдать займ", class: "btn"
