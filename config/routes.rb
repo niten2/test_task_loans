@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
   resources :clients do
+    resources :loans
     get :issue_loan, on: :member
   end
+
   # devise_for :users, controllers: { sessions: 'sessions', registrations: "registrations" }
   devise_for :users, :path_prefix => 'my', controllers: {registrations: 'registrations'}
   # devise_for :users, :path_prefix => 'my', :skip => [:registrations]

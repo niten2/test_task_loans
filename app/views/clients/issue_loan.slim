@@ -10,5 +10,6 @@ h4 Дата погашения каждого
 hr
 
 
-/ - simple_form_for @loan, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
-/   =
+= simple_form_for @loan, :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+  = f.input :sum, label: "Сумма займа"
+  .center = f.submit "Выдать займ", class: "btn"
