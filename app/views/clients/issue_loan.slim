@@ -5,26 +5,47 @@ h4.center
   =< @client.patronymic
 
 br
-h5.center Уже выданные займы:
-.offset-s4.col.s2 Сумма займа
-.col.s3 Дата погашения
-.clearfix
-- @client.loans.each do |loan|
-  .offset-s4.col.s2 = loan.sum
-  .col.s3 = loan.end_loan
-  br
+- if @client.loans.present?
+  h5.center Уже выданные займы:
+  .offset-s4.col.s2 Сумма займа
+  .col.s3 Дата погашения
+  .clearfix
+  - @client.loans.each do |loan|
+    .offset-s4.col.s2 = loan.sum
+    .col.s3 = loan.end_loan
+    br
+- else
+  .center У клиента займов еще нет
 .clearfix
 hr
 
 
 h5.center Выдать новый займ:
+br
 = simple_form_for [@client, @loan], :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
   .col.s4 = f.input :sum, label: "Сумма займа"
-  .col.s4 = f.date_select :date_issue, label: "Дата выдачи займа"
-  .col.s4
-    | Коэффициент выдачи займа
+  .col.s4.center
+    | Коэффициент выдачи займа:
+    br
     - if @client.user.present?
-      = @client.user.territory
+      #territory = @client.user.territory
+    - else
+      Не установлено
+  .col.s4.center
+    | Сумма возврата займа:
+    br
+    = f.input :total_sum, label: "Итоговая сумма"
 
   .clearfix
+  .offset-s2.col.s4
+    | Дата начала займа:
+    = f.date_select :date_issue, label: "Дата выдачи займа"
+  .col.s4
+    | Дата окончания погашения:
+    = f.date_select :end_loan, label: "Дата выдачи займа", default: 30.days.from_now
+
+  .clearfix
+  br
   .center = f.submit "Выдать займ", class: "btn"
+
+  .center = link_to 'Назад', user_clients_path(current_user)
