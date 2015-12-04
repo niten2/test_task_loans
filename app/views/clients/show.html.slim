@@ -1,6 +1,8 @@
 .center = render @client
 br
 .center
-  = link_to 'Редактировать', edit_client_path(@client)
+  = link_to 'Редактировать данные', edit_client_path(@client)
+  br
+  = link_to 'Выдать займ', "#"
   br
   = link_to 'Назад', clients_path
