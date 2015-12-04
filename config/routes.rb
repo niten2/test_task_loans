@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   resources :clients
+  resources :users
   # devise_for :users, controllers: { sessions: 'sessions', registrations: "registrations" }
   devise_for :users
 
@@ -8,6 +9,7 @@ Rails.application.routes.draw do
     root 'devise/sessions#new'
     # post '/finish_sign_up' => 'registrations#finish_sign_up'
   end
+
 
   get "welcome" => "welcomes#index"
   # get "ajax" => "welcome#ajax"

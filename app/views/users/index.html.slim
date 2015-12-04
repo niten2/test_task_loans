@@ -1,0 +1,20 @@
+h1 Список клиентов
+
+table
+  thead
+    tr
+      th
+      th
+      th
+
+  tbody
+    - @users.each do |user|
+      tr
+        td = user.name
+        td = link_to 'Show', user
+        td = link_to 'Edit', edit_user_path(user)
+        td = link_to 'Destroy', user, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+.center = button_to 'Новый клиент', new_user_path, class: "btn", method: :get

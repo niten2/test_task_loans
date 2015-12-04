@@ -1,10 +1,8 @@
 class User < ActiveRecord::Base
-  # include UserVotable
-  # include Omniauthable
-
-  # devise :database_authenticatable, authentication_keys: :login
 
   devise :database_authenticatable, :registerable, :recoverable, :rememberable, :trackable, :authentication_keys => [:login]
+
+  validates :name, :surname, :patronymic, :phone, :territory, presence: true
 
   # has_many :questions
   # has_many :answers
