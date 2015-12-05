@@ -1,42 +1,46 @@
 h5.center Список Менеджеров
-.col.s2 Логин
-.col.s2 Имя
-.clearfix
-- @users.manager.each do |user|
-  -if user.access_locked?
-    .red-text
-      = render "users_manager", user: user
-      .col.s2 = link_to 'Разблокировать', unlock_user_path(user), method: :post
-      .clearfix
-  - else
-    = render "users_manager", user: user
-    .col.s2 = link_to 'Заблокировать', lock_user_path(user), method: :post
-    .clearfix
-br
-.center = button_to 'Новый Менеджер', new_user_path, class: "btn", method: :get
-br
 
-h5.center Список Администраторов
-.offset-s4.col.s2 Логин
-.col.s2 Имя
-.clearfix
-- @users.admin.each do |admin|
-  .offset-s4.col.s3 = admin.login
-  .col.s3 = admin.name
-.clearfix
-br
-
-h5.center Список Клиентов
-- if @clients.present?
-  .offset-s2.col.s2 Имя
+.card
+  .col.s2 Логин
+  .col.s2 Имя
   .clearfix
-  - @clients.each do |client|
-    .offset-s2.col.s2 = client.name
-    .col.s2 = link_to "Удалить клиента", client, method: :delete
-    - if client.mark_removal?
-      .red-text Клиент помечен на удаление
-    .clearfix
+  - @users.manager.each do |user|
+    -if user.access_locked?
+      .red-text
+        = render "users_manager", user: user
+        .col.s2 = link_to 'Разблокировать', unlock_user_path(user), method: :post
+        .clearfix
+    - else
+      = render "users_manager", user: user
+      .col.s2 = link_to 'Заблокировать', lock_user_path(user), method: :post
+      .clearfix
   br
-- else
-  .center Клиентов пока нет
+  .center = button_to 'Новый Менеджер', new_user_path, class: "btn", method: :get
+  br
+
+.card
+  h5.center Список Администраторов
+  .offset-s4.col.s2 Логин
+  .col.s2 Имя
+  .clearfix
+  - @users.admin.each do |admin|
+    .offset-s4.col.s3 = admin.login
+    .col.s3 = admin.name
+  .clearfix
+  br
+
+.card
+  h5.center Список Клиентов
+  - if @clients.present?
+    .offset-s2.col.s2 Имя
+    .clearfix
+    - @clients.each do |client|
+      .offset-s2.col.s2 = client.name
+      .col.s3 = link_to "Удалить клиента", client, method: :delete
+      - if client.mark_removal?
+        .red-text Клиент помечен на удаление
+      .clearfix
+    br
+  - else
+    .center Клиентов пока нет
 

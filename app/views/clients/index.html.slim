@@ -1,17 +1,17 @@
 h4.center Список клиентов
 
-.col.s2 Имя
-.clearfix
-br
-
-- @clients.each do |client|
-  .offset-s2.col.s2 = link_to "#{client.name}", client
-  .col.s3 = link_to 'Редактировать', edit_client_path(client)
-  - if client.mark_removal?
-    .red-text Клиент помечен на удаление
-  - else
-    .col.s3 = link_to 'Пометить на удаление', mark_removal_client_path(client), data: {:confirm => 'Вы уверены?'}
+.card
+  .offset-s2.col.s2 Имя
   .clearfix
-br
+  br
+  - @clients.each do |client|
+    .offset-s2.col.s2 = link_to "#{client.name}", client
+    .col.s3 = link_to 'Редактировать', edit_client_path(client)
+    - if client.mark_removal?
+      .red-text Клиент помечен на удаление
+    - else
+      .col.s3 = link_to 'Пометить на удаление', mark_removal_client_path(client), data: {:confirm => 'Вы уверены?'}
+    .clearfix
+  br
 
 .center = button_to 'Новый клиент', new_user_client_path, class: "btn", method: :get

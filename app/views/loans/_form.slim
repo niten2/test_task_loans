@@ -1,0 +1,29 @@
+= simple_form_for [@client, @loan] do |f|
+  .offset-s2.col.s4 = f.text_field :sum, label: "Сумма займа", :class => "ntSaveForms"
+  .col.s4.center
+    | Коэффициент выдачи займа:
+    br
+    - if @client.try(:user).try(:present?)
+      #territory = @client.user.territory
+    - else
+      | Не установлено
+  / .col.s4.center
+  /   | Сумма возврата займа:
+  /   br
+  /   = f.input :total_sum, label: "Итоговая сумма"
+  .clearfix
+  .offset-s2.col.s4
+    | Дата начала займа:
+    = f.date_select :date_issue, label: "Дата выдачи займа"
+  .col.s4
+    | Дата окончания погашения:
+    = f.date_select :end_loan, label: "Дата выдачи займа", default: 30.days.from_now
+  .clearfix
+
+  h5.center Порядок расчетов итоговой суммы:
+  | До 30 дней включительно: (Сумма займа * Коэффициент) + (1% * количество дней)
+  br
+  | После 30 дней: (Сумма займа * Коэффициент) + (15% * количество дней)
+  br
+  br
+  .center = f.submit (@loan.new_record? ? 'Выдать займ' : 'Обновить займ'), class: "btn btn-primary"

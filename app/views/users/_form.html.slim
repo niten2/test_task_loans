@@ -17,10 +17,11 @@
   .input-field.col.s4
     = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
     br
-  .col.s4.input-field
+  .col.s6.input-field
+    | Территориальный коэффициент:
     = f.select :territory, { "1%": 1, "2%": 2, "3%": 3}, {}, label: "Территория"
   .col.s4.input-field
-    = f.number_field :phone, label: "Телефон", class: "materialize-textarea"
+    = f.input :phone, label: "Телефон", class: "materialize-textarea", :input_html => { :type => "number" }
     br
   .clearfix
   .center = f.submit (@user.new_record? ? 'Создать менеджера' : 'Обновить менеджера'), class: "btn btn-primary"

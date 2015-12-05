@@ -20,26 +20,32 @@ class LoansController < ApplicationController
     @loan.client = @client
     @loan.count_total_sum
     if @loan.save
-      redirect_to issue_loan_client_path(@client), notice: 'loan was successfully created.'
+      redirect_to issue_loan_client_path(@client), notice: 'Займ создан'
     else
       render :new
     end
   end
 
   def update
+    @client = @loan.client
     if @loan.update(loan_params)
-      redirect_to @loan, notice: 'loan was successfully updated.'
+      @loan.count_total_sum && @loan.save
+      redirect_to issue_loan_client_path(@client), notice: 'Займ обновлен'
     else
       render :edit
     end
   end
 
-  def destroy
-    @loan.destroy
-    redirect_to loans_url, notice: 'loan was successfully destroyed.'
-  end
+  # def destroy
+  #   @loan.destroy
+  #   redirect_to loans_url, notice: 'Займ удален'
+  # end
 
   private
+    # def set_user
+    #   @client = User.find(params[:client_id])
+    # end
+
     def set_client
       @client = Client.find(params[:client_id])
     end
