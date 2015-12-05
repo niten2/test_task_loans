@@ -21,4 +21,4 @@
   .col.s4.input-field
     = f.input :passport, label: "Паспорт", class: "materialize-textarea"
   .clearfix
-  .center = f.submit "Создать клиента", class: "btn"
+  .center = f.submit (@client.new_record? ? 'Создать клиента' : 'Обновить клиента'), class: "btn btn-primary"

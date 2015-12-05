@@ -1,11 +1,12 @@
-require "application_responder"
+# require "application_responder"
 
 class ApplicationController < ActionController::Base
-  self.responder = ApplicationResponder
-  respond_to :html
+  # self.responder = ApplicationResponder
+  # respond_to :html
   protect_from_forgery with: :exception
 
-  # authorize_resource
+  authorize_resource :unless => :devise_controller?
+  # check_authorization :unless => :devise_controller?
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to welcome_path, alert: exception.message
   end

@@ -10,6 +10,7 @@ h5.center Список Менеджеров
       .clearfix
   - else
     = render "users_manager", user: user
+    .col.s2 = link_to 'Заблокировать', lock_user_path(user), method: :post
     .clearfix
 br
 .center = button_to 'Новый Менеджер', new_user_path, class: "btn", method: :get
@@ -27,10 +28,13 @@ br
 
 h5.center Список Клиентов
 - if @clients.present?
-  .center Имя
+  .offset-s2.col.s2 Имя
   .clearfix
   - @clients.each do |client|
-    .center = client.name
+    .offset-s2.col.s2 = client.name
+    .col.s2 = link_to "Удалить клиента", client, method: :delete
+    - if client.mark_removal?
+      .red-text Клиент помечен на удаление
     .clearfix
   br
 - else

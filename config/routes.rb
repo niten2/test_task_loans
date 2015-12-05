@@ -4,6 +4,7 @@ Rails.application.routes.draw do
 
   resources :users, shallow: true do
     post :unlock, :on => :member
+    post :lock, :on => :member
     get :admin_panel
     resources :clients, shallow: true do
       get :mark_removal, on: :member
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do
     root 'devise/sessions#new'
+    # get "logout" => "sessions#destroy", :as => "logout"
   end
 
   get "welcome" => "welcomes#index"

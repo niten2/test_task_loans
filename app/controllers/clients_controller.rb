@@ -29,7 +29,7 @@ class ClientsController < ApplicationController
     @client = Client.new(client_params)
     @client.user = current_user
     if @client.save
-      redirect_to @client, notice: 'Client was successfully created.'
+      redirect_to @client, notice: 'Клиент создан'
     else
       render :new
     end
@@ -37,7 +37,7 @@ class ClientsController < ApplicationController
 
   def update
     if @client.update(client_params)
-      redirect_to @client, notice: 'Client was successfully updated.'
+      redirect_to @client, notice: 'Клиент обновлен'
     else
       render :edit
     end
@@ -45,7 +45,7 @@ class ClientsController < ApplicationController
 
   def destroy
     @client.destroy
-    redirect_to user_clients_url(current_user), notice: 'Client was successfully destroyed.'
+    redirect_to :back, notice: "Клиент удален"
   end
 
   private
