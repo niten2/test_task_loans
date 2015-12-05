@@ -14,7 +14,6 @@ class Ability
   end
 
   def guest_abilities
-    # can :read, :all
   end
 
   def admin_abilities
@@ -22,18 +21,17 @@ class Ability
   end
 
   def manager_abilities
-    # can :create, [Client]
     can :read, [Client, Loan]
     can :read, [User], user: user
-    can :update, [User], user: user
-    cannot :update, [Loan]
-    can :create, [Loan]
+
+    can :create, [Loan, Client]
+
     can :issue_loan, [Client]
-    can :create, [Client]
     can :mark_removal, [Client]
+
     can :update, [Client]
-    # can :read, [Loan]
-    # can :destroy, [Session]
-    # cannot :delete [Client]
+    can :update, [User], user: user
+
+    cannot :update, [Loan]
   end
 end
