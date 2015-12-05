@@ -1,5 +1,10 @@
 class ClientsController < ApplicationController
-  before_action :set_client, only: [:show, :edit, :update, :destroy, :issue_loan]
+  before_action :set_client, only: [:show, :edit, :update, :destroy, :issue_loan, :mark_removal]
+
+  def mark_removal
+    @client.mark_removal && @client.save
+    redirect_to :back
+  end
 
   def issue_loan
     @loan =  Loan.new

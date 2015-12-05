@@ -4,7 +4,8 @@ nav
       li
         = link_to "Главная страница", welcome_path
       li
-        = link_to "Панель администратора", users_path(current_user)
+        - if can? :read, @user
+          = link_to "Панель администратора", users_path(current_user)
       li
         = link_to "Панель менеджера", user_clients_path(current_user)
     ul.right

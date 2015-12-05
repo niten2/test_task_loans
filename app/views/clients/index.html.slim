@@ -5,11 +5,18 @@ h4.center Список клиентов
 br
 
 - @clients.each do |client|
-    .col.s2 = client.name
-    .col.s2 = link_to 'Просмотр', client
-    .col.s2 = link_to 'Редактировать', edit_client_path(client)
-    .col.s2 = link_to 'Удалить', client, data: {:confirm => 'Вы уверены?'}, :method => :delete
-    .clearfix
+  .col.s2 = client.name
+  .col.s2 = link_to 'Просмотр', client
+  .col.s2 = link_to 'Редактировать', edit_client_path(client)
+  - if client.mark_removal?
+    .red-text Клиент помечен на удаление
+  - else
+    .col.s4 = link_to 'Пометить на удаление', mark_removal_client_path(client), data: {:confirm => 'Вы уверены?'}
+  .clearfix
+  / - if client.mark_removal?
+  /   .red-text = render "clients_for_index", client: client
+  / - else
+  /   = render "clients_for_index", client: client
 
 br
 
