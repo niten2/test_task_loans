@@ -8,5 +8,6 @@ br
 .center
   = link_to 'Просмотр', @user
   br
-  = link_to 'Назад', users_path
+  - if current_user.admin?
+    = link_to 'Назад', users_path
 

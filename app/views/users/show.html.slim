@@ -3,4 +3,5 @@ br
 .center
   = button_to 'Редактировать', edit_user_path(@user), method: :get, class: "btn"
   br
-  = link_to 'Назад', users_path
+  - if current_user.admin?
+    = link_to 'Назад', users_path
