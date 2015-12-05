@@ -1,5 +1,4 @@
 require_relative '../acceptance_helper'
 
-feature '' do
-
+feature 'destroy client' do
 end

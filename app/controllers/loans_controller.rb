@@ -42,9 +42,6 @@ class LoansController < ApplicationController
   # end
 
   private
-    # def set_user
-    #   @client = User.find(params[:client_id])
-    # end
 
     def set_client
       @client = Client.find(params[:client_id])

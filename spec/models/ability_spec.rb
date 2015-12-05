@@ -25,6 +25,6 @@ describe Ability do
     it { should be_able_to :update, Client }
     it { should be_able_to :update, User, user: user }
 
-    it { should be_able_to :update, Loan }
+    it { should_not be_able_to :update, Loan }
   end
 end
