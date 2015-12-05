@@ -1,6 +1,5 @@
 class RegistrationsController < Devise::RegistrationsController
 
-  # skip_authorize_resource
   protected
 
   def update_resource(resource, params)

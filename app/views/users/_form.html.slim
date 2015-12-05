@@ -1,12 +1,14 @@
 = simple_form_for @user do |f|
 
   = render 'common/errors', resource: @user
-  .input-field.col.s4
-    = f.input :login, label: "Логин", class: "materialize-textarea"
-    br
-  .input-field.col.s4
-    = f.input :password, label: "Пароль", class: "materialize-textarea"
-  .clearfix
+
+  - if current_user.admin?
+    .input-field.col.s4
+      = f.input :login, label: "Логин", class: "materialize-textarea"
+      br
+    .input-field.col.s4
+      = f.input :password, label: "Пароль", class: "materialize-textarea"
+    .clearfix
 
   .input-field.col.s4
     = f.input :name, label: "Имя", class: "materialize-textarea"
@@ -17,9 +19,10 @@
   .input-field.col.s4
     = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
     br
-  .col.s6.input-field
-    | Территориальный коэффициент:
-    = f.select :territory, { "1%": 1, "2%": 2, "3%": 3}, {}, label: "Территория"
+  - if current_user.admin?
+    .col.s6.input-field
+      | Территориальный коэффициент:
+      = f.select :territory, { "1%": 1, "2%": 2, "3%": 3}, {}, label: "Территория"
   .col.s4.input-field
     = f.input :phone, label: "Телефон", class: "materialize-textarea", :input_html => { :type => "number" }
     br

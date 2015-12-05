@@ -16,6 +16,7 @@ gem 'devise'
 gem 'cancancan'
 gem "simple_form"
 gem "responders"
+gem "letter_opener"
 
 group :development, :test do
 

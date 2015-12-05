@@ -24,6 +24,8 @@ class Ability
   def manager_abilities
     # can :create, [Client]
     can :read, [Client, Loan]
+    can :read, [User], user: user
+    can :update, [User], user: user
     cannot :update, [Loan]
     can :create, [Loan]
     can :issue_loan, [Client]

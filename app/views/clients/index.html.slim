@@ -10,7 +10,7 @@ h4.center Список клиентов
     - if client.mark_removal?
       .red-text Клиент помечен на удаление
     - else
-      .col.s3 = link_to 'Пометить на удаление', mark_removal_client_path(client), data: {:confirm => 'Вы уверены?'}
+      .col.s3 = link_to 'Пометить на удаление', mark_removal_client_path(client)
     .clearfix
   br
 

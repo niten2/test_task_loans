@@ -1,4 +1,7 @@
-h1 Редактирование Менеджера
+- if current_user.admin?
+  h5.center Редактирование Администратора
+- else
+  h5.center Редактирование Менеджера
 
 == render 'form'
 br
