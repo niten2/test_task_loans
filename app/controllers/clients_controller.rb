@@ -1,5 +1,7 @@
 class ClientsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update, :destroy, :issue_loan, :mark_removal]
+  authorize_resource
 
   def mark_removal
     @client.mark_removal && @client.save
