@@ -1,6 +1,7 @@
 class Loan < ActiveRecord::Base
 
   belongs_to :client
+  validates :sum, presence: true
 
   def count_total_sum
     start_sum = self.sum

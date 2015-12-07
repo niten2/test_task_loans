@@ -15,6 +15,7 @@ class LoansController < ApplicationController
   end
 
   def edit
+    @client = @loan.client
   end
 
   def create

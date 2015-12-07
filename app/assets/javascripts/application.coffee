@@ -74,6 +74,13 @@ $(document).ready ->
       number: true
       minlength: 2
 
+  $('.edit_loan').validate rules:
+    'loan[sum]':
+      required: true
+      number: true
+      minlength: 2
+
+
 jQuery.extend jQuery.validator.messages,
   required: "Поле должно быть заполнено"
   email: 'Введите корретный E-mail'

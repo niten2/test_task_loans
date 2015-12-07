@@ -1,5 +1,6 @@
 h5.center Редактирование займа
 br
-
-= render "loans/form"
+= render "loans/calculate"
+br
+= render "loans/form_edit"
 .center = link_to "Назад", issue_loan_client_path(@loan.client)

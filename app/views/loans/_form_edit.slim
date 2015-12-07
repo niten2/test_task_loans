@@ -1,4 +1,4 @@
-= simple_form_for [@client, @loan] do |f|
+= simple_form_for @loan do |f|
   .card.offset-s2.col.s4 = f.input :sum, label: "Сумма займа"
   .card.col.s4.center
     | Коэффициент выдачи займа:
