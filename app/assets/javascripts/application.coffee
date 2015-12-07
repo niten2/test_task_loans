@@ -50,6 +50,7 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
+      maxlength: 10
   $('.edit_client').validate rules:
     'client[name]':
       required: true
@@ -61,18 +62,21 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
+      maxlength: 10
     'client[email]':
       required: true
     'client[passport]':
       required: true
       number: true
       minlength: 6
+      maxlength: 10
   $('.new_user').validate rules:
     'user[login]':
       required: true
     'user[password]':
       required: true
       minlength: 3
+      maxlength: 10
     'user[name]':
       required: true
     'user[surname]':
@@ -83,6 +87,7 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
+      maxlength: 10
   $('.edit_user').validate rules:
     'user[login]':
       required: true
@@ -99,22 +104,26 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
+      maxlength: 10
   $('.new_loan').validate rules:
     'loan[sum]':
       required: true
       number: true
       minlength: 2
+      maxlength: 10
   $('.edit_loan').validate rules:
     'loan[sum]':
       required: true
       number: true
       minlength: 2
+      maxlength: 10
 
 jQuery.extend jQuery.validator.messages,
   required: "Поле должно быть заполнено"
   email: 'Введите корретный E-mail'
   number: 'Поле должно содержать число'
   minlength: jQuery.validator.format('Поле должно содержать от {0} чисел')
+  maxlength: jQuery.validator.format('Поле должно содержать до {0} чисел')
   # remote: 'Please fix this field.'
   # url: 'Please enter a valid URL.'
   # date: 'Please enter a valid date.'
@@ -123,7 +132,6 @@ jQuery.extend jQuery.validator.messages,
   # creditcard: 'Please enter a valid credit card number.'
   # equalTo: 'Please enter the same value again.'
   # accept: 'Please enter a value with a valid extension.'
-  # maxlength: jQuery.validator.format('Please enter no more than {0} characters.')
   # rangelength: jQuery.validator.format('Please enter a value between {0} and {1} characters long.')
   # range: jQuery.validator.format('Please enter a value between {0} and {1}.')
   # max: jQuery.validator.format('Please enter a value less than or equal to {0}.')

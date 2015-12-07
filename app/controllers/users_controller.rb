@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   authorize_resource
 
@@ -65,7 +65,9 @@ class UsersController < ApplicationController
 
   private
     def set_user
-      @user = User.try(:find, params[:id])
+      # binding.pry
+      # @user = User.try(:find, params[:id])
+      @user = User.find(params[:id])
     end
 
     def user_params

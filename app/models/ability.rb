@@ -22,15 +22,15 @@ class Ability
 
   def manager_abilities
     can :read, [Client, Loan]
-    can :read, [User], user_id: user.id
+    can :read, User, id: user.id
 
     can :create, [Loan, Client]
 
     can :issue_loan, [Client]
     can :mark_removal, [Client]
 
+    can :update, [User], id: user.id
     can :update, [Client]
-    can :update, [User], user: user
     cannot :update, [Loan]
     cannot :index, [User]
   end
