@@ -1,22 +1,33 @@
-= simple_form_for [@user, @client], :defaults => { :input_html => { :class => "ntSaveForms" } } do |f|
+= simple_form_for [@user, @client], :defaults => { :input_html => { class: "ntSaveForms" }, :error_html => { :class => "error"} } do |f|
 
   = render 'common/errors', resource: @client
-  .input-field.col.s4
-    = f.input :name, label: "Имя", class: "ntSaveForms materialize-textarea"
-    br
-  .input-field.col.s4
-    = f.input :surname, label: "Фамилия", class: "materialize-textarea"
-    br
-  .input-field.col.s4
-    = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
-    br
+  / .input-field.col.s4
+  .col.s4 = f.input :name, label: "Имя", class: "validate"
+  .col.s4 = f.input :surname, label: "Фамилия", class: "materialize-textarea"
+  .col.s4 = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
   .clearfix
-  .col.s4.input-field
-    = f.input :phone, label: "Телефон", class: "materialize-textarea"
-    br
-  .col.s4.input-field
-    = f.input :email, label: "E-mail", class: "materialize-textarea", as: "email"
-  .col.s4.input-field
-    = f.input :passport, label: "Паспорт", class: "materialize-textarea"
+  .col.s4 = f.input :phone, label: "Телефон", class: "materialize-textarea", as: "string"
+  .col.s4 = f.input :email, label: "E-mail", class: "validate materialize-textarea", as: "email"
+  .col.s4 = f.input :passport, label: "Паспорт", class: "materialize-textarea", as: "string"
   .clearfix
+  / br
+  / .input-field.col.s4
+  / = f.input :name, class: "validate"
+  / br
+  / .input-field.col.s4
+  /   = f.input :surname, label: "Фамилия", class: "materialize-textarea"
+  /   br
+  / .input-field.col.s4
+  /   = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
+  /   br
+  / .clearfix
+  / .col.s4.input-field
+  /   = f.input :phone, label: "Телефон", class: "materialize-textarea"
+  /   br
+  / .col.s4.input-field
+  /   = f.label :email, data: { error: "dsafsdf" }
+  /   = f.input :email, label: "E-mail", class: "validate materialize-textarea", as: "email"
+  / .col.s4.input-field
+  /   = f.input :passport, label: "Паспорт", class: "materialize-textarea"
+  / .clearfix
   .center = f.submit (@client.new_record? ? 'Создать клиента' : 'Обновить клиента'), class: "btn btn-primary"

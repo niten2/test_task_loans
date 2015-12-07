@@ -12,17 +12,19 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem "slim-rails"
 gem 'materialize-sass'
+gem 'jquery-validation-rails'
+gem 'simple_form'
+
+
 gem 'devise'
 gem 'cancancan'
-gem "simple_form"
 gem "responders"
 gem "letter_opener"
 
 group :development, :test do
 
   gem 'mysql2', '~> 0.3.18'
-  # gem 'mysql2'
-  # gem 'mysql2', '0.3.13'
+
   # test
   gem 'rspec-rails'
   gem 'factory_girl_rails'

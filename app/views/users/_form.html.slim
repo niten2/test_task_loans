@@ -1,30 +1,18 @@
 = simple_form_for @user do |f|
-
   = render 'common/errors', resource: @user
-
   - if current_user.admin?
-    .input-field.col.s4
-      = f.input :login, label: "Логин", class: "materialize-textarea"
-      br
-    .input-field.col.s4
-      = f.input :password, label: "Пароль", class: "materialize-textarea"
-    .clearfix
-
-  .input-field.col.s4
-    = f.input :name, label: "Имя", class: "materialize-textarea"
-    br
-  .input-field.col.s4
-    = f.input :surname, label: "Фамилия", class: "materialize-textarea"
-    br
-  .input-field.col.s4
-    = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
-    br
+    .col.s4 = f.input :login, label: "Логин", class: "materialize-textarea"
+    .col.s4 = f.input :password, label: "Пароль", class: "materialize-textarea"
+  .clearfix
+  .col.s4 = f.input :name, label: "Имя", class: "materialize-textarea"
+  .col.s4 = f.input :surname, label: "Фамилия", class: "materialize-textarea"
+  .col.s4 = f.input :patronymic, label: "Отчество", class: "materialize-textarea"
+  .clearfix
   - if current_user.admin?
-    .col.s6.input-field
+    .col.s4
       | Территориальный коэффициент:
       = f.select :territory, { "1%": 1, "2%": 2, "3%": 3}, {}, label: "Территория"
-  .col.s4.input-field
-    = f.input :phone, label: "Телефон", class: "materialize-textarea", :input_html => { :type => "number" }
+    .col.s4 = f.input :phone, label: "Телефон", class: "materialize-textarea", as: "string"
     br
   .clearfix
   .center = f.submit (@user.new_record? ? 'Создать менеджера' : 'Обновить менеджера'), class: "btn btn-primary"

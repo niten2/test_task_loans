@@ -3,12 +3,12 @@ nav
     ul
       li
         - if current_user.admin?
-          = link_to "Администратор", users_path(current_user)
+          = link_to "Панель Администратора", users_path(current_user)
       li
-        = link_to "Менеджер", user_clients_path(current_user)
+        = link_to "Панель Менеджера", user_clients_path(current_user)
+    ul.right
       li
         = link_to "Профиль", user_path(current_user)
-    ul.right
       li
         = link_to "Описание", description_path
       li
