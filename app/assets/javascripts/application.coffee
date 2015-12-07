@@ -68,22 +68,11 @@ $(document).ready ->
       number: true
       minlength: 6
 
-
-    # 'client[surname]':
-    #   required: true
-    # 'client[patronymic]':
-    #   required: true
-    # 'client[phone]':
-    #   required: true
-    #   number: true
-    #   minlength: 6
-    # 'client[email]':
-    #   required: true
-    # 'client[passport]':
-    #   required: true
-    #   number: true
-    #   minlength: 6
-
+  $('.new_loan').validate rules:
+    'loan[sum]':
+      required: true
+      number: true
+      minlength: 2
 
 jQuery.extend jQuery.validator.messages,
   required: "Поле должно быть заполнено"

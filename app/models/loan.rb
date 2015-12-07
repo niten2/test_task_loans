@@ -7,7 +7,7 @@ class Loan < ActiveRecord::Base
     territory = self.client.user.territory.to_i
     count_day = (self.end_loan - self.date_issue )/(60*60*24)
 
-    percent = ((start_sum * territory)/100) * 1
+    percent = ((start_sum * territory).to_f)/100
 
     if count_day <= 30
       less_mount = count_day

@@ -30,6 +30,15 @@ br
 hr
 
 h5.center Выдать новый займ:
+.offset-s4.col.s4.card.center
+  | Итоговая сумма:
+  #loan_total_sum
+  button class="btn" id="calculate" Вычислить
+.clearfix
 br
 = render "loans/form"
 .center = link_to 'Назад', user_clients_path(current_user)
+
+
+
+
