@@ -2,8 +2,6 @@ nav
   .navbar-fixed.nav-wrapper
     ul
       li
-        = link_to "Главная страница", welcome_path
-      li
         - if current_user.admin?
           = link_to "Администратор", users_path(current_user)
       li

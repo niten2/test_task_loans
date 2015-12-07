@@ -18,7 +18,7 @@ Rails.application.routes.draw do
     # get "logout" => "sessions#destroy", :as => "logout"
   end
 
-  get "welcome" => "welcomes#index"
+  # get "welcome" => "welcomes#index"
   get "description" => "welcomes#description"
 
 end

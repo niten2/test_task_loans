@@ -7,6 +7,10 @@ class ApplicationController < ActionController::Base
   end
 
   def after_sign_in_path_for(resource)
-    welcome_path
+    if current_user.admin?
+      users_path(current_user)
+    else
+      user_clients_path(current_user)
+    end
   end
 end
