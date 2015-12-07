@@ -50,7 +50,23 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
-
+  $('.edit_client').validate rules:
+    'client[name]':
+      required: true
+    'client[surname]':
+      required: true
+    'client[patronymic]':
+      required: true
+    'client[phone]':
+      required: true
+      number: true
+      minlength: 6
+    'client[email]':
+      required: true
+    'client[passport]':
+      required: true
+      number: true
+      minlength: 6
   $('.new_user').validate rules:
     'user[login]':
       required: true
@@ -67,19 +83,32 @@ $(document).ready ->
       required: true
       number: true
       minlength: 6
-
+  $('.edit_user').validate rules:
+    'user[login]':
+      required: true
+    'user[password]':
+      required: true
+      minlength: 3
+    'user[name]':
+      required: true
+    'user[surname]':
+      required: true
+    'user[patronymic]':
+      required: true
+    'user[phone]':
+      required: true
+      number: true
+      minlength: 6
   $('.new_loan').validate rules:
     'loan[sum]':
       required: true
       number: true
       minlength: 2
-
   $('.edit_loan').validate rules:
     'loan[sum]':
       required: true
       number: true
       minlength: 2
-
 
 jQuery.extend jQuery.validator.messages,
   required: "Поле должно быть заполнено"
