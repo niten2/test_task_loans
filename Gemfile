@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby "2.2.2"
 gem 'rails', '4.2.4'
-gem 'pg'
+gem 'pg', group: :production
 
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
@@ -20,6 +20,9 @@ gem "letter_opener"
 
 group :development, :test do
 
+  gem 'mysql2', '~> 0.3.18'
+  # gem 'mysql2'
+  # gem 'mysql2', '0.3.13'
   # test
   gem 'rspec-rails'
   gem 'factory_girl_rails'
