@@ -14,7 +14,7 @@ gem "slim-rails"
 gem 'materialize-sass'
 gem 'jquery-validation-rails'
 gem 'simple_form'
-
+gem "gon"
 
 gem 'devise'
 gem 'cancancan'

@@ -10,6 +10,7 @@ class ClientsController < ApplicationController
 
   def issue_loan
     @loan =  Loan.new
+    gon.exist = @client.loans_exist?
   end
 
   def index

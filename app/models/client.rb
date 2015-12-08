@@ -16,7 +16,15 @@ class Client < ActiveRecord::Base
       all_loans_cash += loan.total_sum.to_i
     end
     return all_loans_cash
+  end
 
+  def loans_exist?
+    exist = false
+    self.loans.each do |loan|
+    # self.each do |loan|
+      exist = true if loan.end_loan.future?
+    end
+    return exist
   end
 
 end

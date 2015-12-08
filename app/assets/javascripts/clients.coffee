@@ -24,6 +24,16 @@ $ ->
       less_mount = 30
       more_mount = count_day - 30
 
-    total_sum = (start_sum * territory) + (percent * less_mount) + (15*percent * more_mount)
+    if gon.exist
+      total_sum = (start_sum * territory) + (15*percent * count_day)
+    else
+      total_sum = (start_sum * territory) + (percent * less_mount) + (15*percent * more_mount)
 
     $("#loan_total_sum").html(total_sum)
+
+$ ->
+  $("#loan_exist").html("У клиента существуют непогашенные займы, ставка будет 15%") if gon.exist
+
+
+
+
