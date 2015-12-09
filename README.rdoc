@@ -2,6 +2,8 @@
 
 Демо версия здесь: http://test-task-loans.herokuapp.com
 
+В проекте используется: Rspec, Capybara, Devise, MaterializeCss, Jquery, Mysql, Cancan.
+
 Техническое задание:
 
 - Приложение должно поддерживать аутентификацию по паре логин и пароль.
