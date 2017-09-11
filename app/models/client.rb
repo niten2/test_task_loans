@@ -1,8 +1,15 @@
 class Client < ActiveRecord::Base
 
   has_many :loans
+
   belongs_to :user
-  validates :name, :surname, :patronymic, :phone, :passport, presence: true
+
+  validates :name,
+    :surname,
+    :patronymic,
+    :phone,
+    :passport,
+    presence: true
 
   def mark_removal
     ActiveRecord::Base.transaction do
@@ -20,10 +27,7 @@ class Client < ActiveRecord::Base
 
   def loans_exist?
     exist = false
-    self.loans.each do |loan|
-    # self.each do |loan|
-      exist = true if loan.end_loan.future?
-    end
+    self.loans.each { |loan| exist = true if loan.end_loan.future? }
     return exist
   end
 

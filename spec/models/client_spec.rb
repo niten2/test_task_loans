@@ -23,5 +23,4 @@ describe Client do
     expect(client.all_loans_cash).to eq 400
   end
 
-
 end

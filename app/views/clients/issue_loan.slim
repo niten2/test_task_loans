@@ -5,6 +5,7 @@ h4.center
   =< @client.patronymic
 
 br
+
 - if @client.loans.present?
   h5.center Уже выданные займы:
   .col.s2 Сумма займа
@@ -26,6 +27,7 @@ br
     br
 - else
   .center У клиента займов еще нет
+
 .clearfix
 hr
 
@@ -33,8 +35,5 @@ h5.center Выдать новый займ:
 = render "loans/calculate"
 br
 = render "loans/form"
+
 .center = link_to 'Назад', user_clients_path(current_user)
-
-
-
-

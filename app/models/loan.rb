@@ -18,7 +18,6 @@ class Loan < ActiveRecord::Base
       more_mount = count_day - 30
     end
 
-    # if self.client.loans.loans_exist?
     if self.client.loans_exist?
       total_sum = (start_sum * territory) + (15*percent * count_day)
     else

@@ -17,4 +17,5 @@ protected
       flash.delete(:notice)
     end
   end
+
 end

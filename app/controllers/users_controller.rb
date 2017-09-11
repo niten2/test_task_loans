@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  # before_action :authenticate_user!
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   authorize_resource
 
@@ -32,11 +32,11 @@ class UsersController < ApplicationController
 
   def create
     @users = User.new(user_params)
-      if @users.save
-        redirect_to @users, notice: 'Менеджер создан'
-      else
-        render :new
-      end
+    if @users.save
+      redirect_to @users, notice: 'Менеджер создан'
+    else
+      render :new
+    end
   end
 
   def update
@@ -46,15 +46,15 @@ class UsersController < ApplicationController
     end
 
     successfully_updated = if needs_password?(@user, user_params)
-                             @user.update(user_params)
-                           else
-                             @user.update_without_password(user_params)
-                           end
+      @user.update(user_params)
+    else
+      @user.update_without_password(user_params)
+    end
 
     if successfully_updated
-        redirect_to @user, notice: 'Менеджер обновлен'
+      redirect_to @user, notice: 'Менеджер обновлен'
     else
-        render :edit
+      render :edit
     end
   end
 
@@ -64,17 +64,25 @@ class UsersController < ApplicationController
   end
 
   private
-    def set_user
-      # binding.pry
-      # @user = User.try(:find, params[:id])
-      @user = User.find(params[:id])
-    end
 
-    def user_params
-      params.require(:user).permit(:login, :password, :name, :surname, :patronymic, :territory, :phone)
-    end
+  def set_user
+    @user = User.find(params[:id])
+  end
 
-    def needs_password?(user, params)
-      params[:password].present?
-    end
+  def user_params
+    params.require(:user).permit(
+      :login,
+      :password,
+      :name,
+      :surname,
+      :patronymic,
+      :territory,
+      :phone
+    )
+  end
+
+  def needs_password?(user, params)
+    params[:password].present?
+  end
+
 end

@@ -1,4 +1,5 @@
 class ClientsController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_client, only: [:show, :edit, :update, :destroy, :issue_loan, :mark_removal]
   authorize_resource
@@ -52,11 +53,13 @@ class ClientsController < ApplicationController
   end
 
   private
-    def set_client
-      @client = Client.find(params[:id])
-    end
 
-    def client_params
-      params.require(:client).permit(:name, :surname, :patronymic, :territory, :phone, :email, :passport)
-    end
+  def set_client
+    @client = Client.find(params[:id])
+  end
+
+  def client_params
+    params.require(:client).permit(:name, :surname, :patronymic, :territory, :phone, :email, :passport)
+  end
+
 end

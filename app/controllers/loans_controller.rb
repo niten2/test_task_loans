@@ -1,4 +1,5 @@
 class LoansController < ApplicationController
+
   before_action :authenticate_user!
   before_action :set_loan, only: [:show, :edit, :update, :destroy, :issue_loan]
   before_action :set_client, only: [:create]
@@ -39,23 +40,19 @@ class LoansController < ApplicationController
     end
   end
 
-  # def destroy
-  #   @loan.destroy
-  #   redirect_to loans_url, notice: 'Займ удален'
-  # end
-
   private
 
-    def set_client
-      @client = Client.find(params[:client_id])
-    end
+  def set_client
+    @client = Client.find(params[:client_id])
+  end
 
-    def set_loan
-      @loan = Loan.find(params[:id])
-    end
+  def set_loan
+    @loan = Loan.find(params[:id])
+  end
 
-    def loan_params
-      params.require(:loan).permit(:sum, :date_issue, :end_loan )
-    end
+  def loan_params
+    params.require(:loan).permit(:sum, :date_issue, :end_loan )
+  end
+
 end
 
